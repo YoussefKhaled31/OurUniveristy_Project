@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI VibeCheck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-lg w-full bg-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2">AI VibeCheck</h1>
+            <p class="text-gray-400">Enter text to analyze emotional sentiment.</p>
+        </div>
+
+        <form method="POST" action="/" class="space-y-4">
+            <textarea name="user_text" rows="4" class="w-full bg-gray-700 text-white rounded-xl p-4" required>{{ text }}</textarea>
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl">Analyze</button>
+        </form>
+
+        {% if sentiment %}
+        <div class="mt-8 p-6 rounded-xl bg-gray-700 border-l-4">
+            <h3>Result: {{ sentiment }} {{ emoji }}</h3>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
